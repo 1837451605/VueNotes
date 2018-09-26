@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>创建添加</h1>
+        <div id="app">
+            <button @click="btn" class="btn1">添加笔记</button>
+            <div class="inp">
+                <span>几秒前</span>
+                <input type="text" :placeholder="num" id="inpt1" v-model="num">
+                <textarea type="text" id="inpt2" v-model="text1"></textarea>
+            </div>
+    <div class="main">
+        <h3>已发布</h3>
+        <div class="inpx clearfix inp">
+            <ul v-for="(ul,index) in uls">
+                <li><span class="fl">几秒前</span>{{ul.text}}</li>
+                <textarea>{{ul.nei}}</textarea>
+                <button @click="btn2(index)">{{ul.delete}}</button>
+            </ul>
+        </div>
+    </div>
+        </div>
+    </header>
+    
+    
+    <script src="js/vue.js"></script>
+    <script src="js/script.js"></script>
+    
+</body>
+</html>

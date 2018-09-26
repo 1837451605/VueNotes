@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #b6f5ff;
+        }
+        input{
+            background-color: #fff0fe;
+            font-size: 16px;
+            margin-left: 5px;
+            padding-left: 5px;
+        }
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        .clearfix::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        #app{
+            margin-left: 25%;
+            width:50%;
+        }
+        #app div p,#app div h3,#app div button{
+            float: left;
+            margin-top:20px;
+            margin-left: 10px;
+        }
+        li{
+            list-style: none;
+            margin-top: 20px;
+            border-bottom: 1px #000 solid;
+        }
+        .nei1{
+            border: none;
+            border-bottom: 1px #000 solid;
+            outline-style: none;
+            width: 60%;
+        }
+        #app div:nth-of-type(1) button{
+            float: right;
+        }
+        #app div:nth-of-type(2){
+            margin-top: 10px;
+        }
+        #app div:nth-of-type(3){
+            margin-top: 10px;
+        }
+        textarea{
+            outline-style: none;
+            /*border: none;*/
+            margin-top: 5px;
+            font-size: 14px;
+            padding:5px;
+            font-family: 黑体;
+        }
+        button{
+            padding: 5px 10px;
+            background-color: rgba(189, 69, 128, 0.94);
+            color: #fff;
+            position: absolute;
+            right: 36%;
+            top: 5.5%;
+        }
+        span{
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="clearfix">
+        <h3>日行一记</h3>
+        <button v-on:click="add">添加笔记</button>
+    </div>
+    <div>
+        <span>标题:</span><input type="text" class="nei1" v-model="newAddText" placeholder="标题">
+    </div>
+    <div>
+        <span>内容:</span><input type="text" class="nei1" v-model="txt" placeholder="内容">
+        <!--<p>{{biaotizi}}字</p>-->
+    </div>
+    <ul>
+        <li v-for='(nav,index) in text' v-bind:key='nav.id'>
+            <h3>{{nav.h2}}</h3>
+            <textarea name="" id="" cols="70" rows="5" @keydown="fun(index)" v-model="nav.atra"></textarea>
+            <span class="fa fa-trash-o" v-on:click='text.splice(index,1)'></span>
+            <p>{{nav.zi}}字</p>
+            <p class="shijian">{{nowTime}}</p>
+        </li>
+
+    </ul>
+</div>
+
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.js"></script>
+<script src="js/data.js"></script>
+<!--<script src="js/js.js"></script>-->
+</body>
+</html>
